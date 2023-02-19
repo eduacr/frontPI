@@ -3,7 +3,7 @@ import Navbar from './Navbar'
 
 function Header() {
   return (
-    <div>
+    <div className='header'>
         <img src='./img/logoOk.svg' alt="Logo" className="logo" />
         <p className='Sentite'>Sentite como en tu hogar</p>
         <Navbar/>

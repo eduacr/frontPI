@@ -2,7 +2,7 @@ import React from 'react'
 
 function Footer() {
   return (
-    <footer>
+    <footer className='footer'>
     <p>@2023 Digital Booking</p>
     <div className="footer-icons-container">
         <img className="icon" src="/img/fb.svg" alt='Facebook' />
