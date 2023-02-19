@@ -2,12 +2,10 @@ import "./App.css";
 import { routes } from "./Routes";
 import { Routes, Route } from "react-router-dom";
 import Home from "./Routes/Home";
-import Header from "./Components/Header";
-import Footer from "./Components/Footer";
 import NotFound from "./Routes/NotFound";
-import FormLogin from "./Routes/FormLogin";
 import Layout from "./Components/Layout";
 import FormSingIn from "./Routes/FormSingIn";
+import FormLogin from "./Routes/FormLogin";
 
 function App() {
   return (

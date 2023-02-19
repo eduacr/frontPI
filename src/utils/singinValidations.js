@@ -27,13 +27,5 @@ export const singinValidations = (form) => {
     errors.passwordConfirm = "Las contraseñas deben coincidir"
   }
 
-  if (Object.keys(errors).length === 0 && form.password !== "admin") {
-    errors.credentials =
-      "Por favor vuelva a intentarlo, sus credenciales son inválidas";
-  }
-
-  console.log("validations");
-  console.log(errors);
-
   return errors;
 };

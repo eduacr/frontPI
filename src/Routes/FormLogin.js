@@ -1,6 +1,11 @@
 import React, { useState } from "react";
-import { ReactComponent as ShowPassword } from "../img/show-password.svg";
+import FormField from "../Components/FormField";
+import FormPasswordField from "../Components/FormPasswordField";
 import { loginValidations } from "../utils/loginValidations";
+import { useNavigate } from "react-router-dom";
+import { routes } from "../Routes";
+import { hasUnreliableEmptyValue } from "@testing-library/user-event/dist/utils";
+
 
 const initialForm = {
   email: "",
@@ -13,10 +18,12 @@ const initialErrors = {
   credentials: "",
 };
 
-export default function FormLogin() {
+export default function NewForm() {
   const [form, setForm] = useState(initialForm);
   const [showPassword, setShowPassword] = useState(false);
   const [errors, setErrors] = useState(initialErrors);
+
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -26,6 +33,10 @@ export default function FormLogin() {
     setShowPassword(!showPassword);
   };
 
+  const successfulLogin = () => {
+    navigate(routes.home);
+  }
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const errors = loginValidations(form);
@@ -33,64 +44,51 @@ export default function FormLogin() {
     if (Object.keys(errors).length === 0) {
       setErrors(initialErrors);
       console.log("LOGIN CORRECTO");
+      successfulLogin();
     } else {
       setErrors(errors);
     }
   };
 
+  const handleChangeForm = () => {
+    navigate(routes.singin);
+  }
+
   return (
-    <div className="form-login-container">
-      <form className="form-login" onSubmit={handleSubmit}>
-        <h1 className="title">Iniciar sesión</h1>
-        <div className="form-field">
-          <label className="form-label" htmlFor="email">
-            Correo electrónico
-          </label>
-          <input
-            className={errors.email ? "form-input input-error" : "form-input"}
-            type="email"
-            id="email"
-            value={form.name}
-            name="email"
-            onChange={handleChange}
-          />
-          <p className="login-validation">{errors.email}</p>
-        </div>
+    <div className="form-container">
+      <form className="form-user" onSubmit={handleSubmit}>
+        <h1 className="form-user-title">Iniciar sesión</h1>
+        <FormField
+          fieldName="Correo electrónico"
+          id="email"
+          handleChange={handleChange}
+          errors={errors}
+          form={form}
+          inputType="email"
+        />
+        <FormPasswordField
+          fieldName="Contraseña"
+          id="password"
+          handleChange={handleChange}
+          errors={errors}
+          form={form}
+          showPassword={showPassword}
+          handleShowPassword={handleShowPassword}
+        />
 
-        <div className="form-field">
-          <label className="form-label" htmlFor="password">
-            Contraseña
-          </label>
-          <div className="password-input-container">
-            <input
-              className={
-                errors.password ? "form-input input-error" : "form-input"
-              }
-              id="password"
-              type={showPassword ? "text" : "password"}
-              value={form.password}
-              name="password"
-              onChange={handleChange}
-            />
-            <p className="login-validation">{errors.password}</p>
-            <p className="login-validation login-validation-credentials">{errors.credentials}</p>
-            <button
-              type="button"
-              className="btn-show-password"
-              onClick={handleShowPassword}
-            >
-              <ShowPassword />
-            </button>
-          </div>
+        <div className="form-user-submit-section">
+          <p className="form-user-credential-validations">
+            {errors.credentials}
+          </p>
+          <button type="submit" className="form-user-btn-login">
+            Ingresar
+          </button>
+          <p className="form-user-change-form ">
+            ¿Aún no tenes cuenta?
+            <span onClick={handleChangeForm} className="form-user-change-form-link"> Registrate</span>
+          </p>
         </div>
-
-        <button type="submit" className="btn-login">
-          Ingresar
-        </button>
-        <p className="not-count">
-          ¿Aún no tenes cuenta?{" "}
-          <span className="go-to-sign-in">Registrate</span>
-        </p>
+				
       </form>
     </div>
   );

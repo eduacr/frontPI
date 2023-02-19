@@ -24,15 +24,15 @@
   min-height: 100vh;
 }
 
-/* Formulario Login */
-.form-login-container {
+/* new form LOGIN*/
+.form-container {
   min-height: calc(100vh - 151px);
   display: flex;
   align-items: flex-start;
   justify-content: center;
 }
 
-.form-login {
+.form-user {
   margin-top: 20px;
   height: 100%;
   max-width: 300px;
@@ -42,23 +42,23 @@
   align-items: center;
 }
 
-.form-login-container .title {
+.form-user-title {
   margin-bottom: 60px;
   font-size: 24px;
   color: var(--primary-color);
 }
 
-.form-login .form-field {
+.form-user-field {
   display: flex;
   flex-direction: column;
   width: 100%;
 }
 
-.form-login .form-label {
+.form-user-label {
   font-weight: 500;
 }
 
-.form-login .form-input {
+.form-user-input {
   margin-top: 5px;
   height: 40px;
   width: 100%;
@@ -70,25 +70,12 @@
   box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.15);
 }
 
-.form-login .input-error {
-  background-color: #FFE1E1;
-  border: solid 1px #FF0000;
+.input-user-error {
+  background-color: #ffe1e1;
+  border: solid 1px #ff0000;
 }
 
-.password-input-container {
-  position: relative;
-}
-
-.btn-show-password {
-  position: absolute;
-  top: 20px;
-  right: 15px;
-  border: none;
-  background-color: transparent;
-  cursor: pointer;
-}
-
-.login-validation {
+.form-user-validation {
   color: #ff0000;
   font-weight: 500;
   font-size: 12px;
@@ -97,11 +84,39 @@
   min-height: 16px;
 }
 
-.login-validation-credentials {
+.input-user-password-container {
+  position: relative;
+}
+
+.btn-show-password {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.form-user-submit-section {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.form-user-credential-validations {
+  color: #ff0000;
+  font-weight: 500;
+  font-size: 12px;
+  text-align: right;
+  min-width: 10px;
+  min-height: 16px;
   text-align: center;
 }
 
-.form-login .btn-login {
+.form-user-btn-login {
   margin-top: 20px;
   width: 100%;
   height: 40px;
@@ -116,100 +131,32 @@
   cursor: pointer;
 }
 
-.form-login .btn-login:hover {
+.form-user-btn-login:hover {
   background-color: #1ca79d;
 }
 
-.form-login .not-count {
+.form-user-change-form {
   margin-top: 10px;
   font-weight: 500;
   size: 12px;
   text-align: center;
 }
 
-.not-count .go-to-sign-in {
+.form-user-change-form-link {
   color: #4285f4;
   cursor: pointer;
 }
 
-.not-count .go-to-sign-in:hover {
+.form-user-change-form-link:hover {
   color: #072cfc;
 }
 
-@media (min-width: 768px) {
-  .form-login-container {
-    align-items: center;
-  }
-
-  .form-login {
-    margin-top: 0px;
-    max-width: 346px;
-  }
-
-  .form-login-container .title {
-    margin-bottom: 40px;
-  }
-}
-
-@media (min-width: 1024px) {
-  .form-login {
-    margin-top: 20px;
-    max-width: 448px;
-  }
-
-
-  .form-login .btn-login {
-    width: 206px;
-    margin-top: 10px;
-  }
-}
-
-
-/* Formulario Singin */
-.names-form-singin {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-}
-
-.sing-in-title {
-  margin-bottom: 10px;
-  font-size: 24px;
-  color: var(--primary-color);
-}
-
-.form-login .form-input {
-  /* cambio de 10px a 5 px */
-  margin-top: 5px; 
-  height: 35px;
-  width: 100%;
-  font-weight: 500;
-  font-size: 12px;
-  padding-left: 15px;
-  border-radius: 5px;
-  border: none;
-  box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.15);
-}
-
-
-.form-login .btn-singin {
-  margin-top: 15px;
-  width: 100%;
-  height: 40px;
-  background-color: var(--primary-color);
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.12);
-  border-radius: 5px;
-  border: none;
-  color: #ffffff;
-  font-weight: 700;
-  font-size: 16px;
-  line-height: 19px;
-  cursor: pointer;
-}
-
+/* new form SINGIN */
 .form-singin {
   margin-top: 10px;
-  height: 100%;
+}
+
+.form-singin-names-field {
   max-width: 300px;
   width: 100%;
   display: flex;
@@ -217,20 +164,72 @@
   align-items: center;
 }
 
-.form-login .go-to-login {
-  margin-top: 10px;
-  margin-bottom: 20px;
-  font-weight: 500;
-  size: 12px;
-  text-align: center;
+.form-singin-title {
+  margin-bottom: 5px;
 }
 
-.go-to-login-link {
-  color: #4285f4;
-  cursor: pointer;
+.form-singin-btn-submit {
+  margin-top: 0px;
 }
 
-.go-to-login-link:hover {
-  color: #072cfc;
+@media (min-width: 768px) {
+  /* form user */
+  .form-container {
+    align-items: center;
+  }
+
+  .form-user {
+    margin-top: 0px;
+    max-width: 346px;
+  }
+
+  .form-user-title {
+    margin-bottom: 40px;
+  }
+
+  /* form singin */
+  .form-singin-names-field {
+    max-width: 346px;
+  }
+
+  .form-singin-title {
+    margin-top: 5px;
+    margin-bottom: 10px;
+  }
 }
 
+@media (min-width: 1024px) {
+  /* header */
+  .header {
+    height: 80px;
+  }
+  /* main menu */
+  .main-container {
+    padding: 80px 10px 58px 10px;
+  }
+  /* form user */
+  
+  .form-container {
+    min-height: calc(100vh - 138px);
+  }
+  .form-user {
+    margin-top: 20px;
+    max-width: 448px;
+  }
+
+  .form-user-btn-login {
+    width: 206px;
+    margin-top: 10px;
+  }
+
+  /* form singin */
+  .form-singin {
+    margin-top: 0px;
+  }
+
+  .form-singin-names-field {
+    max-width: 448px;
+    flex-direction: row;
+    gap: 15px;
+  }
+}
