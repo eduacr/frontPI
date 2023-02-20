@@ -13,7 +13,7 @@ export default function UserProfile({user, handleCerrarSesion}) {
       </div>
       <div className='profile-name-container'>
         <p>Hola,</p>
-        <p className='profile-name'>Bruno Rodríguez</p>
+        <p className='profile-name'>{user.firstName} {user.lastName}</p>
       </div>
     </div>
   )

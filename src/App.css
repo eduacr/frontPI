@@ -4,7 +4,7 @@
 }
 
 .main-container {
-  padding: 70px 10px 50px 10px;
+  padding: 70px 0px 50px 0px;
   background-color: #eeeeee;
   min-height: 100vh;
 }
@@ -221,10 +221,10 @@
   left: 0;
 }
 
-
 /* new form LOGIN*/
 .form-container {
   min-height: calc(100vh - 120px);
+  padding: 0 10px;
   display: flex;
   align-items: flex-start;
   justify-content: center;
