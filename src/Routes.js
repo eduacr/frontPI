@@ -3,7 +3,7 @@
 export const routes={
     home:'/',
     login: "/iniciar-sesion",
-    singin: "/registrarse"
+    singin: "/registro"
     // contact:'/contacto',
     // favs:'/favs',
     // detail:'/dentist/:id'

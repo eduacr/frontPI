@@ -1,14 +1,18 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import UserContext from "../context/user.context";
 import { useNavigate } from "react-router-dom";
 import { ReactComponent as Logo } from "../img/logo-desk.svg";
 import { ReactComponent as BtnMenu } from "../img/menu.svg";
 import Drawer from "./Drawer";
 import { routes } from "../Routes";
 import { useLocation } from "react-router-dom";
+import BtnsLogin from "./BtnsLogin";
 
 
 export default function NewHeader() {
   const [showDrawer, setShowDrawer] = useState(false);
+
+  const { user, setUser } = useContext(UserContext);
 
   const location = useLocation();
   const urlPath = location.pathname;
@@ -29,18 +33,31 @@ export default function NewHeader() {
     setShowDrawer(!showDrawer);
   };
 
+  const navigateHome = () => {
+    navigate(routes.home);
+  };
+
+  const handleCerrarSesion = () => {
+    setShowDrawer(!showDrawer);
+    setUser(null);
+  }
+
   return (
     <header className="header">
       {/* mobile */}
-      <Logo className="logo" />
-      <BtnMenu className="btnMenu" onClick={handleBtnDrawer} />
+      <Logo className="logo" onClick={navigateHome} />
+      <BtnMenu className="btn-open-drawer" onClick={handleBtnDrawer} />
       <Drawer
         showDrawer={showDrawer}
         handleBtnDrawer={handleBtnDrawer}
         navigateSingin={navigateSingin}
         navigateLogin={navigateLogin}
-        userState="logout"
+        urlPath={urlPath}
+        user={user}
+        setUser={setUser}
+        handleCerrarSesion={handleCerrarSesion}
       />
+      <BtnsLogin />
     </header>
   );
 }

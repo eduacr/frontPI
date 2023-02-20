@@ -1,11 +1,16 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import UserContext from "../context/user.context";
 import FormField from "../Components/FormField";
 import FormPasswordField from "../Components/FormPasswordField";
 import { loginValidations } from "../utils/loginValidations";
 import { useNavigate } from "react-router-dom";
 import { routes } from "../Routes";
-import { hasUnreliableEmptyValue } from "@testing-library/user-event/dist/utils";
 
+const userHardcodeado = {
+  firstName:"Bruno",
+  lastName: "Rodríguez",
+  email:"mateofernandez@gmail.com",
+}
 
 const initialForm = {
   email: "",
@@ -23,6 +28,8 @@ export default function NewForm() {
   const [showPassword, setShowPassword] = useState(false);
   const [errors, setErrors] = useState(initialErrors);
 
+  const { user, setUser } = useContext(UserContext);
+
   const navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -34,16 +41,16 @@ export default function NewForm() {
   };
 
   const successfulLogin = () => {
+    setErrors(initialErrors);
+    console.log("LOGIN CORRECTO");
+    setUser(userHardcodeado);
     navigate(routes.home);
   }
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const errors = loginValidations(form);
-    console.log(errors);
     if (Object.keys(errors).length === 0) {
-      setErrors(initialErrors);
-      console.log("LOGIN CORRECTO");
       successfulLogin();
     } else {
       setErrors(errors);

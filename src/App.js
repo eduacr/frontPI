@@ -16,8 +16,8 @@ function App() {
           <Route path={routes.home} element={<Home />} />
           <Route path={routes.login} element={<FormLogin />} />
           <Route path={routes.singin} element={<FormSingIn />} />
-          <Route path="*" element={<NotFound />} />
         </Route>
+          <Route path="*" element={<NotFound />} />
       </Routes>
       {/* <Footer/> */}
     </div>

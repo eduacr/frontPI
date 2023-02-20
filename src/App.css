@@ -1,9 +1,9 @@
 :root {
   --primary-color: #1dbeb4;
+  --secondo-color: #545776;
 }
 
 /* header */
-
 .header {
   height: 60px;
   position: fixed;
@@ -15,10 +15,9 @@
   justify-content: space-between;
   padding: 0 10px;
   z-index: 100;
-
-  
-  background-color: #FFFFFF;
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.14), 0px 4px 5px rgba(0, 0, 0, 0.12), 0px 1px 10px rgba(0, 0, 0, 0.2);
+  background-color: #ffffff;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.14), 0px 4px 5px rgba(0, 0, 0, 0.12),
+    0px 1px 10px rgba(0, 0, 0, 0.2);
 }
 
 .logo {
@@ -26,32 +25,59 @@
   box-sizing: content-box;
 }
 
-.btnMenu {
+/* para version desktop */
+
+.btns-login-container {
+
+}
+
+.btn-open-drawer {
   cursor: pointer;
+}
+
+.drawer-container {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  transition: 0.6s all ease;
+  background-color: rgba(0, 0, 0, 0.0);
+  pointer-events: none;
+}
+
+.out-of-drawer {
+  width: 30%;
 }
 
 .drawer {
   position: absolute;
   top: 0;
-  right: -10px;
+  right: -75%;
   height: 100vh;
-  width: 70vw;
+  width: 70%;
   background-color: #bdbdbd;
   transition: 0.6s all ease;
 }
 
-.show-rawer {
-  right: 0px; 
+.show-drawer-container {
+  background-color: rgba(0, 0, 0, 0.5);
+  pointer-events: auto;
+}
+
+.show-drawer {
+  right: 0;
 }
 
 .topSectionDrawer {
   height: 25%;
-  background-color: #1DBEB4;
+  background-color: #1dbeb4;
   padding: 10px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: flex-end;
 }
 
 .btn-close-menu {
@@ -60,11 +86,47 @@
   align-self: flex-start;
 }
 
-.menu-profile {
+.drawer-menu {
   align-self: flex-end;
   color: white;
   font-weight: 700;
   font-size: 20px;
+}
+
+.profile-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.profile-icon-container {
+  height: 40px;
+  width: 40px;
+  border-radius: 50px;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.profile-letters {
+  font-size: 20px;
+  color: var(--secondo-color);
+  font-weight: 700;
+}
+
+.profile-name-container {
+  margin-top: 5px;
+  text-align: right;
+  color: white;
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.profile-name {
+  color: #383b58;
 }
 
 .bottomSectionDrawer {
@@ -73,7 +135,7 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-end;
-  padding: 10px;
+  padding: 20px 10px 10px;
   background-color: rgb(255, 255, 255);
 }
 
@@ -82,14 +144,14 @@
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  gap: 5px;
+  gap: 10px;
   font-size: 16px;
   font-weight: 700;
 }
 
 .drawer-option {
   cursor: pointer;
-  color: #383B58;
+  color: #383b58;
 }
 
 .drawer-options-hr {
@@ -115,7 +177,7 @@
   font-weight: 500;
 }
 
-.cerrar-sesion{
+.cerrar-sesion {
   color: var(--primary-color);
   cursor: pointer;
 }
@@ -125,11 +187,9 @@
   gap: 10px;
 }
 
-.redes-icon{
+.redes-icon {
   cursor: pointer;
 }
-
-
 
 /* footer */
 .footer {
@@ -292,10 +352,32 @@
 }
 
 .form-singin-btn-submit {
-  margin-top: 0px;
+  margin-top: 10px;
 }
 
 @media (min-width: 768px) {
+  /* header */
+  .drawer-container {
+    display: none;
+  }
+  .btn-open-drawer {
+    display: none;
+  }
+
+  .btns-login-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+  }
+
+  .btn-login {
+    border: solid 1px var(--primary-color);
+    border-radius: 5px;
+    height: 40px;
+    width: 160px;
+    background-color: #fff;
+  }
+
   /* form user */
   .form-container {
     align-items: center;

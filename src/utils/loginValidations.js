@@ -16,8 +16,5 @@ export const loginValidations = (form) => {
           errors.credentials = "Por favor vuelva a intentarlo, sus credenciales son inválidas";
       }
   
-      console.log( "validations");
-      console.log( errors);
-  
       return errors;
   };
