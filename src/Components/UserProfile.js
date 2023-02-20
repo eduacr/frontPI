@@ -1,11 +1,13 @@
 import React from 'react'
+import { ReactComponent as BtnCloseSesion } from "../img/cross-black.svg";
 
-export default function UserProfile({user}) {
+export default function UserProfile({user, handleCerrarSesion}) {
 
-  const firstNameLetter = user.firstName.charAt(0);
-  const lastNameLetter = user.lastName.charAt(0);
+  const firstNameLetter = user.firstName.charAt(0).toUpperCase();
+  const lastNameLetter = user.lastName.charAt(0).toUpperCase();
   return (
     <div className='profile-container'>
+      <BtnCloseSesion className='close-profile-desk' onClick={handleCerrarSesion} />
       <div className='profile-icon-container'>
         <span className='profile-letters'>{`${firstNameLetter}${lastNameLetter}`}</span>
       </div>

@@ -6,7 +6,7 @@ import { ReactComponent as BtnMenu } from "../img/menu.svg";
 import Drawer from "./Drawer";
 import { routes } from "../Routes";
 import { useLocation } from "react-router-dom";
-import BtnsLogin from "./BtnsLogin";
+import HeaderOptionsDesk from "./HeaderOptionsDesk";
 
 
 export default function NewHeader() {
@@ -44,8 +44,10 @@ export default function NewHeader() {
 
   return (
     <header className="header">
-      {/* mobile */}
-      <Logo className="logo" onClick={navigateHome} />
+    <div className="logo-container" onClick={navigateHome}>
+      <Logo className="logo" />
+      <span className="logo-eslogan">Sentite como en tu hogar</span>
+    </div>
       <BtnMenu className="btn-open-drawer" onClick={handleBtnDrawer} />
       <Drawer
         showDrawer={showDrawer}
@@ -57,7 +59,13 @@ export default function NewHeader() {
         setUser={setUser}
         handleCerrarSesion={handleCerrarSesion}
       />
-      <BtnsLogin />
+      <HeaderOptionsDesk 
+        navigateSingin={navigateSingin}
+        navigateLogin={navigateLogin}
+        user={user}
+        urlPath={urlPath}
+        handleCerrarSesion={handleCerrarSesion}
+      />
     </header>
   );
 }

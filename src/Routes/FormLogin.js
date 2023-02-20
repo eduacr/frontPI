@@ -7,8 +7,8 @@ import { useNavigate } from "react-router-dom";
 import { routes } from "../Routes";
 
 const userHardcodeado = {
-  firstName:"Bruno",
-  lastName: "Rodríguez",
+  firstName:"tBruno",
+  lastName: "pRodríguez",
   email:"mateofernandez@gmail.com",
 }
 

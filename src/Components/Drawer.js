@@ -1,4 +1,4 @@
-import { ReactComponent as BtnCloseMenu } from "../img/close-drawer.svg";
+import { ReactComponent as BtnCloseMenu } from "../img/cross-white.svg";
 import { ReactComponent as Facebook } from "../img/icon-facebook.svg";
 import { ReactComponent as Linkedin } from "../img/icon-linkedin.svg";
 import { ReactComponent as Twitter } from "../img/icon-twitter.svg";
@@ -41,7 +41,6 @@ export default function Drawer({
           </p>
         </>
       );
-    } else {
     }
   };
 
@@ -58,7 +57,7 @@ export default function Drawer({
           {user === null ? (
             <div className="drawer-menu">MENÚ</div>
           ) : (
-            <UserProfile user={user} />
+            <UserProfile user={user} handleCerrarSesion={handleCerrarSesion}/>
           )}
         </div>
         <div className="bottomSectionDrawer">
