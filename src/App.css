@@ -26,9 +26,8 @@
 }
 
 /* para version desktop */
-
 .btns-login-container {
-
+  display: none;
 }
 
 .btn-open-drawer {
