@@ -1,16 +1,18 @@
-import React from 'react'
+import React, { useState } from 'react'
+import Card from '../Components/Card'
+import Category from '../Components/Category'
 
 function Home() {
+
   return (
+    
     <main>
         <h1>Home</h1>
-        {/* <div className='card-grid'>
-        {data.map((item)=> (
-        <div key={item.id}>
-          <Card id={item.id} name={item.name} username={item.username}></Card>
+        <div className='card-grid container'>
+        <Card></Card>
+        {/*<Category></Category>*/}
+         
         </div>
-        ))}
-        </div> */}
     </main>
   )
 }
