@@ -13,6 +13,10 @@ export const SearchBarContainer = styled.div`
   justify-content: center;
   align-items: center;
   padding: 15px;
+
+  @media (min-width: 768px) {
+    padding: 15px 30px 25px;
+  }
 `;
 
 export const SearchBarTitle = styled.h1`
@@ -130,6 +134,11 @@ export const BtnSearch = styled.button`
   font-size: 16px;
   font-weight: 700;
   cursor: pointer;
+  transition: all 0.3s ease;
+  
+  &:hover{
+    background-color: #15a39a;
+  }
 
   @media (min-width: 768px) {
     width: 20%;
@@ -150,12 +159,14 @@ export const SelectCityOptionContainer = styled.div`
   height: 0px;
   overflow: hidden;
   padding: 0;
+  opacity: 0;
 
   ${({ $show }) => {
     if ($show) {
       return css`
-        height: calc(279px);
-        padding: 10px 15px;
+        height: 250px;
+        padding: 10px 15px 0px;
+        opacity: 1;
       `;
     }
   }};
@@ -178,8 +189,12 @@ export const SelectCityOptionStyled = styled.div`
   gap: 10px;
   border-bottom: solid 1px ${PRIMARY_COLOR};
   width: 100%;
-  padding-bottom: 13px;
-  margin-top: 13px;
+  padding: 10px;
+  transition: all 0.3s ease;
+
+  &:hover{
+    background-color: #f0f0f0;
+  }
 `;
 
 export const SelectCityOptionNames = styled.div`
