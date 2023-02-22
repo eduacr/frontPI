@@ -50,25 +50,14 @@ const citysHardCode = [
 ];
 
 function Home() {
-  const [showCitys, setShowCitys] = useState(false);
   const [citySelected, setCitySelected] = useState(null);
 
-  const [showCalendar, setShowCalendar] = useState(false);
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
-
-  const handleShowCity = () => {
-    setShowCitys(!showCitys);
-  };
 
   const handleSelectCity = id => {
     const citySelected = citysHardCode.find(city => city.id === id);
     setCitySelected(citySelected);
-  }
-
-
-  const handleShowCalendar = () => {
-    setShowCalendar(!showCalendar);
   }
 
   const onChangeDate = (dates) => {
@@ -77,14 +66,20 @@ function Home() {
     setEndDate(end);
   };
 
+  const handleSearchProducts = e => {
+    e.preventDefault();
+  }
+
 
   return (
     <main>
         <SearchBar
-          showCitys={showCitys}
           citySelected={citySelected}
           handleSelectCity={handleSelectCity}
-          handleShowCity={handleShowCity}
+          startDate={startDate}
+          endDate={endDate}
+          onChangeDate={onChangeDate}
+          handleSearchProducts={handleSearchProducts}
         />
     </main>
   )

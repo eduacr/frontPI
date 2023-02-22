@@ -21,6 +21,12 @@ export const SearchBarTitle = styled.h1`
   font-size: 30px;
   font-weight: 700;
   margin-bottom: 10px;
+  max-width: 400px;
+
+  @media (min-width: 768px) {
+    max-width: none;
+    margin-bottom: 20px;
+  }
 `;
 
 export const FormSearch = styled.form`
@@ -28,6 +34,14 @@ export const FormSearch = styled.form`
   flex-direction: column;
   width: 100%;
   gap: 10px;
+  max-width: 400px;
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    max-width: none;
+  }
 `;
 
 export const SelectCity = styled.div`
@@ -42,6 +56,7 @@ export const SelectCity = styled.div`
   background-color: #fff;
   position: relative;
   cursor: pointer;
+  z-index: 50;
 
   p {
     font-size: 14px;
@@ -61,9 +76,14 @@ export const SelectCity = styled.div`
       `;
     }
   }};
+
+  @media (min-width: 768px) {
+    width: 40%;
+    max-width:420px;
+  }
 `;
 
-export const SearchDateBtn = styled.button`
+export const SearchDateInput = styled.div`
   height: 38px;
   box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.15);
   border-radius: 5px;
@@ -77,6 +97,27 @@ export const SearchDateBtn = styled.button`
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  background-color: #fff;
+  position: relative;
+
+  ${({ $empty }) => {
+    if ($empty === null) {
+      return css`
+        fill: #7f7f7f;
+        color: #7f7f7f;
+      `;
+    } else {
+      return css`
+        fill: ${PURPLE3};
+        color: ${PURPLE3};
+      `;
+    }
+  }};
+
+  @media (min-width: 768px) {
+    width: 40%;
+    max-width:420px;
+  }
 `;
 
 export const BtnSearch = styled.button`
@@ -89,6 +130,11 @@ export const BtnSearch = styled.button`
   font-size: 16px;
   font-weight: 700;
   cursor: pointer;
+
+  @media (min-width: 768px) {
+    width: 20%;
+    max-width: 206px;
+  }
 `;
 
 export const IconLocation = styled(Icon_Location)`
@@ -96,7 +142,6 @@ export const IconLocation = styled(Icon_Location)`
 `;
 
 export const IconCalendar = styled(Icon_Calendar)`
-  fill: ${({ $empty }) => ($empty === null ? "#7F7F7F" : PURPLE3)};
   margin-right: 6px;
 `;
 
@@ -105,7 +150,7 @@ export const SelectCityOptionContainer = styled.div`
   height: 0px;
   overflow: hidden;
   padding: 0;
-  
+
   ${({ $show }) => {
     if ($show) {
       return css`

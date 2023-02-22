@@ -1,3 +1,5 @@
+import { useState } from "react";
+import Datepicker from "./DatePicker";
 import SelectCityOption from "./SelectCityOption";
 import {
   BtnSearch,
@@ -5,7 +7,7 @@ import {
   SelectCity,
   SearchBarContainer,
   SearchBarTitle,
-  SearchDateBtn,
+  SearchDateInput,
   IconLocation,
   IconCalendar,
   SelectCityOptionContainer,
@@ -60,17 +62,38 @@ const citysHardCode = [
 ];
 
 export default function SearchBar({
-  showCitys,
   citySelected,
   handleSelectCity,
-  handleShowCity,
+  startDate,
+  endDate,
+  onChangeDate,
+  handleSearchProducts
 }) {
+  const [showCitys, setShowCitys] = useState(false);
+  const [showCalendar, setShowCalendar] = useState(false);
+
+  const handleShowCity = () => {
+    showCalendar && setShowCalendar(false);
+    setShowCitys(!showCitys);
+  };
+
+  const handleShowCalendar = () => {
+    showCitys && setShowCitys(false);
+    setShowCalendar(!showCalendar);
+  };
+
+  const dayFormater = date => {
+    const options = { day: 'numeric', month: 'short' };
+    const formattedDate = date.toLocaleDateString('es-ES', options);
+    return formattedDate.replace(/ /, ' de ');
+  }
+
   return (
     <SearchBarContainer>
       <SearchBarTitle>
         Busca ofertas en hoteles, casas y mucho más
       </SearchBarTitle>
-      <FormSearch>
+      <FormSearch onSubmit={handleSearchProducts}>
         <SelectCity onClick={handleShowCity} $empty={citySelected}>
           <IconLocation $empty={citySelected} />
           <p>
@@ -89,10 +112,19 @@ export default function SearchBar({
           </SelectCityOptionContainer>
         </SelectCity>
 
-        <SearchDateBtn>
-          <IconCalendar $empty />
-          Check in - Check Out
-        </SearchDateBtn>
+        <SearchDateInput onClick={handleShowCalendar} $empty={startDate} >
+          <IconCalendar />
+          {startDate ? dayFormater(startDate) : "Check in"}
+           {" - "}
+          {endDate ? dayFormater(endDate) : "Check out"}
+            <Datepicker
+              showCalendar={showCalendar}
+              startDate={startDate}
+              endDate={endDate}
+              onChangeDate={onChangeDate}
+              handleShowCalendar={handleShowCalendar}
+            />
+        </SearchDateInput>
         <BtnSearch>Buscar</BtnSearch>
       </FormSearch>
     </SearchBarContainer>
