@@ -1,16 +1,13 @@
 import React from 'react'
+import SearchBar from '../Components/home/SearchBar'
 
 function Home() {
+
   return (
     <main>
-        <h1>Home</h1>
-        {/* <div className='card-grid'>
-        {data.map((item)=> (
-        <div key={item.id}>
-          <Card id={item.id} name={item.name} username={item.username}></Card>
-        </div>
-        ))}
-        </div> */}
+        <SearchBar>
+          
+        </SearchBar>
     </main>
   )
 }
