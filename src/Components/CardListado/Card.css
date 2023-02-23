@@ -1,16 +1,19 @@
 .card-main {
     display: flex;
-    background-color: #ffff;
-    width: 639px;
-    min-height: 270px;
-    border: 0px solid transparent;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    flex-wrap: wrap;
+    flex: 200px;
+    /* background-color: #ffff;
+    width: 311px;
+    height: 330px;
+    border: 1px solid #DFE4EA;
+    border-radius: 10px;
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
     margin-bottom: 20px;
-    justify-content: space-evenly;
+    justify-content: space-evenly; */
+   
   }
   
-  .top {
+  /* .top {
     display: flex;
     justify-content: space-between;
   }
@@ -23,14 +26,19 @@
      
   .img-container-listado {
     position: relative;
-    width: 50%;
+    left: 0%;
+    right: -0.03%;
+    top: -5.65%;
+    bottom: -11.3%;
+    border-radius: 8px 8px 0px 0px;
+    /* width: 50%;
     margin: 0px;
-    height: 274px;
-  }
+    height: 274px; */
+  /* }
   
   .img1 {
-    height: 100%;
-    width: 100%;
+    height: 10%;
+    width: 10%;
     object-fit: cover;
     border-radius: 8px;
     border-top-right-radius: 0;
@@ -42,7 +50,7 @@
      -ms-user-select: none;
   
   }
-  
+   */ 
   
   .card-text {
     width: 50%;

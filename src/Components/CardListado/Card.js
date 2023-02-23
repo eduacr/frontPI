@@ -1,4 +1,3 @@
-import React, { useEffect, useState } from 'react'
 import locations from '../locations'
 import "./Card.css";
 
@@ -11,7 +10,7 @@ const Card = () => {
             {locations.map((item) => (
                 <div className="card" key={item.id}>
                     <div className='img-container-listado'><img className='img1' src={item.img} alt={item.title}/></div>
-                        <div className='card-text'>
+                        <div>
                             <div className='top'><h5>{item.category}</h5></div>
                             <div className='card-h5-container'><h5>{item.title}</h5></div>
                             {/* <h5>{item.location}</h5> */}
